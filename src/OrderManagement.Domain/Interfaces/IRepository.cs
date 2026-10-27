@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OrderManagement.Domain.Interfaces
 {
-    internal interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
         Task<TEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);

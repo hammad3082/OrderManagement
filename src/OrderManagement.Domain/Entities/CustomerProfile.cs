@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OrderManagement.Domain.Entities
 {
-    internal class CustomerProfile
+    public class CustomerProfile
     {
         public Guid CustomerId { get; private set; }
         public string Address { get; private set; } = string.Empty;
