@@ -1,6 +1,6 @@
 ﻿namespace OrderManagement.Domain.Interfaces
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         ICustomerRepository Customers { get; }
 
