@@ -12,7 +12,16 @@ namespace OrderManagement.Infrastructure.Persistence.Repositories
         {
             _context = context;
         }
-
+        public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Customers
+                .AsNoTracking()
+                .AnyAsync(c => c.Id == id, cancellationToken);
+        }
+        public async Task<Customer?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Customers.FindAsync(new object[] { id }, cancellationToken);
+        }
         public async Task<Customer?> GetCustomerWithProfileAndOrdersAsync(Guid customerId, CancellationToken cancellationToken = default)
         {
             return await _context.Customers

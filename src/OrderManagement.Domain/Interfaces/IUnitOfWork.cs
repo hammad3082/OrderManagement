@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OrderManagement.Domain.Interfaces
+﻿namespace OrderManagement.Domain.Interfaces
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         ICustomerRepository Customers { get; }
+
+        IOrderRepository Orders { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
