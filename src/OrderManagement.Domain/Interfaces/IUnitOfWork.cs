@@ -6,7 +6,7 @@ namespace OrderManagement.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<TEntity> Repository<TEntity>() where TEntity : class;
+        ICustomerRepository Customers { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

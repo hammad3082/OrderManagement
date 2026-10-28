@@ -20,7 +20,8 @@ namespace OrderManagement.Application.Customers.Commands.CreateCustomer
         {
             var customer = new Customer(request.Name, request.Email, request.Address, request.PhoneNumber);
 
-            await _unitOfWork.Repository<Customer>().AddAsync(customer, cancellationToken);
+            await _unitOfWork.Customers.AddAsync(customer, cancellationToken);
+
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             _logger.LogInformation("Successfully created Customer with ID: {CustomerId}", customer.Id);
