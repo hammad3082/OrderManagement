@@ -1,3 +1,4 @@
+using OrderManagement.Api.Middleware;
 using OrderManagement.Application;
 using OrderManagement.Infrastructure;
 
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ValidationExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
