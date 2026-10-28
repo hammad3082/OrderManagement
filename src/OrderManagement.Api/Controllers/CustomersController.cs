@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OrderManagement.Application.Customers.Commands.CreateCustomer;
+using OrderManagement.Application.Customers.Queries.GetCustomerById;
 
 namespace OrderManagement.Api.Controllers
 {
@@ -23,9 +24,13 @@ namespace OrderManagement.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok();
+            var customer = await _mediator.Send(new GetCustomerByIdQuery(id));
+            
+            if (customer == null) return NotFound();
+            
+            return Ok(customer);
         }
     }
 }
