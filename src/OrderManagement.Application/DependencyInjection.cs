@@ -1,5 +1,5 @@
-﻿using MediatR;
-using FluentValidation;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using OrderManagement.Application.Common.Behaviors;
 

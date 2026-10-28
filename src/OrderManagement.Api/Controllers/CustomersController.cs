@@ -27,9 +27,9 @@ namespace OrderManagement.Api.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var customer = await _mediator.Send(new GetCustomerByIdQuery(id));
-            
+
             if (customer == null) return NotFound();
-            
+
             return Ok(customer);
         }
     }

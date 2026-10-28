@@ -15,7 +15,7 @@ namespace OrderManagement.Application.Customers.Commands.CreateCustomer
             _unitOfWork = unitOfWork;
             _logger = logger;
         }
-        
+
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
             var customer = new Customer(request.Name, request.Email, request.Address, request.PhoneNumber);

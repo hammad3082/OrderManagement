@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OrderManagement.Domain.Entities
+﻿namespace OrderManagement.Domain.Entities
 {
     public class Customer
     {

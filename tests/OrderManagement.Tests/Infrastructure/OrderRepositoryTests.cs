@@ -1,9 +1,7 @@
-﻿using Azure.Core;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using OrderManagement.Domain.Entities;
 using OrderManagement.Infrastructure.Persistence;
-using Xunit;
 
 namespace OrderManagement.Tests.Infrastructure
 {
@@ -27,7 +25,7 @@ namespace OrderManagement.Tests.Infrastructure
             var context = await GetDatabaseContextAsync();
 
             var customer = new Customer("Alice Smith", "alice@example.com", "123 MG Road, Bengaluru", "9876543210");
-          
+
             context.Customers.Add(customer);
             await context.SaveChangesAsync();
 

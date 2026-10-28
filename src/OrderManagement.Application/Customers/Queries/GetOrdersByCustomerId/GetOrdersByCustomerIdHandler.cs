@@ -19,9 +19,9 @@ namespace OrderManagement.Application.Customers.Queries.GetOrdersByCustomerId
             return orders.
                 Select(
                     o => new GetOrdersByCustomerIdDto(
-                        o.Id, 
-                        o.CustomerId, 
-                        o.OrderDate, 
+                        o.Id,
+                        o.CustomerId,
+                        o.OrderDate,
                         o.TotalAmount
                     )
                 ).ToList();

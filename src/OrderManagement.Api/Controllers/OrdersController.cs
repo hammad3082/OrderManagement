@@ -20,7 +20,7 @@ namespace OrderManagement.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateOrderCommand command)
         {
             var id = await _mediator.Send(command);
-            
+
             return Ok(id);
         }
 
@@ -28,7 +28,7 @@ namespace OrderManagement.Api.Controllers
         public async Task<IActionResult> GetByCustomerId(Guid customerId)
         {
             var orders = await _mediator.Send(new GetOrdersByCustomerIdQuery(customerId));
-            
+
             return Ok(orders);
         }
     }
